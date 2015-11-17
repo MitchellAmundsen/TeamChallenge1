@@ -4,7 +4,6 @@ angular.module('LoginApp', ['ngSanitize'])
 	.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
 		$scope.today = Date.now();
 
-
 		$scope.validatePW = function(){
 			
 			var pass1 = $scope.pass1;
