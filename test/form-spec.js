@@ -23,3 +23,22 @@ describe('form password fields', function() {
 
   	});
 });
+
+describe('form first and last name field', function() {
+  var lastName = element(by.model('lastNameBox'));
+
+
+  beforeEach(function(){
+    browser.get('http://localhost:8000/TeamChallenge1/');
+    })
+
+    it('should let user type in no first name but a last name and not show error', function(){
+
+
+      lastName.sendKeys('testlastname');
+
+      var errorbox = element(by.id('nameerror'));
+      expect(errorbox.isPresent()).toEqual(false);
+
+    });
+});
