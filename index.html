@@ -17,6 +17,7 @@
 		<div class="form-group">
 			<label for="emailBox">Email</label>
 			<input type="text" id="emailBox" name="emailBox">
+			<p class="help-block red" ng-show="signup.emailBox.$invalid && signup.emailBox.$dirty">this is not a valid email address</p>
 		</div>
 		<div class="form-group">
 			<label for="firstNameBox">First Name</label>
@@ -24,11 +25,13 @@
 		</div>
 		<div class="form-group">
 			<label for="lastNameBox">Last Name</label>
-			<input type="text" id="lastNameBox">
+			<input type="text" id="lastNameBox" name="lastNameBox">
+			<p class="help-block red" ng-show="signup.lastNameBox.$invalid && signup.lastNameBox.$dirty">we need to know your last name</p>
 		</div>
 		<div class="form-group">
 			<label for="birthdateBox">Birthdate</label>
 			<input type="text" id="birthdateBox">
+			<p class="help-block red" ng-show="signup.birthdateBox.$invalid && signup.birthdateBox.$dirty">sorry, you must be at least 13 to sign up</p>
 		</div>
 		<div class="form-group">
 			<label for="passwordBox">Password</label>
