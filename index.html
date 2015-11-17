@@ -37,7 +37,7 @@
 		<div class="form-group">
 			<label for="passwordConfBox">Confirm Password</label>
 			<input type="password" name="pass2" id="passwordConfBox" ng-model="pass2" ng-change="validatePW()" required>
-			<p class="help-block red" ng-show="signup.pass2.$invalid && signup.pass2.$dirty" id="red">Passwords must match.</p>
+			<p class="help-block red" ng-show="signup.pass2.$invalid && signup.pass2.$dirty" id="red passerror">Passwords must match.</p>
 		</div>
 			<button type="reset" class="btn btn-danger" ng-click="resetForm()">Reset</button>
 			<button type="submit" class="btn btn-success">Submit</button>
