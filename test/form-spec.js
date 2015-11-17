@@ -42,3 +42,23 @@ describe('form first and last name field', function() {
 
     });
 });
+
+describe('form email field', function() {
+  var email = element(by.model('emailBox'));
+
+
+  beforeEach(function(){
+    browser.get('http://localhost:8000/TeamChallenge1/');
+    })
+
+    it('should require user to type in a valid email address', function(){
+
+
+      email.sendKeys('testemail@testdomain.com');
+
+      var errorbox = element(by.id('emailerror'));
+      expect(errorbox.isPresent()).toEqual(false);
+
+    });
+});
+
