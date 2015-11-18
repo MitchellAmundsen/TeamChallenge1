@@ -2,6 +2,8 @@
 
 angular.module('LoginApp', ['ngSanitize'])
 	.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
+
+		$scope.submitted = false;
 		
 		$scope.validatePW = function(){	
 			var pass1 = $scope.pass1;
@@ -14,7 +16,8 @@ angular.module('LoginApp', ['ngSanitize'])
 		};
 
 		$scope.submit = function(){
-			
+			console.log("test");
+			$scope.submitted = true;
 		}
 
 		$scope.validateBD = function(){
