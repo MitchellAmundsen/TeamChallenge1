@@ -16,8 +16,11 @@ angular.module('LoginApp', ['ngSanitize'])
 				console.log("they don't match");
 				$scope.signup.pass2.$setValidity("required", false);
 			}
-			
 		};
+
+		$scope.submit = function(){
+			
+		}
 
 
 	}])
