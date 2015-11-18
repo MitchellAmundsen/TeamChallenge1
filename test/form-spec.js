@@ -11,7 +11,7 @@ describe('form password fields', function() {
 	var confirmpassword = element(by.model('pass2'));
 
 	beforeEach(function(){
-    browser.get('http://localhost:8000/TeamChallenge1/');
+    browser.get('http://localhost:8000/challenges/TeamChallenge1/');
   	})
 
   	it('should let user type in same password and not show error', function(){
@@ -27,11 +27,6 @@ describe('form password fields', function() {
 describe('form first and last name field', function() {
   var lastName = element(by.model('lastNameBox'));
 
-
-  beforeEach(function(){
-    browser.get('http://localhost:8000/TeamChallenge1/');
-    })
-
     it('should let user type in no first name but a last name and not show error', function(){
 
 
@@ -46,17 +41,24 @@ describe('form first and last name field', function() {
 describe('form email field', function() {
   var email = element(by.model('emailBox'));
 
-
-  beforeEach(function(){
-    browser.get('http://localhost:8000/TeamChallenge1/');
-    })
-
     it('should require user to type in a valid email address', function(){
 
 
       email.sendKeys('testemail@testdomain.com');
 
       var errorbox = element(by.id('emailerror'));
+      expect(errorbox.isPresent()).toEqual(false);
+
+    });
+});
+
+describe('form birthday field', function() {
+  var birthday = element(by.model('birthdateBox'));
+
+    it('should let user type in a birthday more than 13 years ago', function(){
+      birthday.sendKeys('02-02-2000');
+
+      var errorbox = element(by.id('bderror'));
       expect(errorbox.isPresent()).toEqual(false);
 
     });
