@@ -12,3 +12,11 @@ body {
 	color: red;
 }
 
+input {
+	color: black;
+}
+
+p {
+	color: red;
+	text-shadow: 0px;
+}
