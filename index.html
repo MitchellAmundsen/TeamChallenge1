@@ -15,12 +15,14 @@
 
 <body class="container" ng-app="LoginApp">
 	<h1>Social Media Signup</h1>
+	<!-- attempt at getting alert to popup -->
 	<div ng-controller="HomeCtrl">
 		<div ng-bind-html="htmlText"></div>
 		{{htmlText}}
 	</div>
 
 	<form name="signup" ng-controller="HomeCtrl" novalidate>
+		<!-- checks for valid email -->
 		<div class="form-group">
 			<label for="emailBox">Email</label>
 			<input type="email" id="emailBox" name="emailBox" ng-model="emailBox" required>
@@ -35,11 +37,13 @@
 			<input type="text" id="lastNameBox" name="lastNameBox" ng-model="lastNameBox" required>
 			<p class="help-block" ng-show="signup.lastNameBox.$invalid && signup.lastNameBox.$dirty" id="red nameerror">we need to know your last name</p>
 		</div>
+		<!-- birthdate field with nonvalid under 13 years old -->
 		<div class="form-group">
 			<label for="birthdateBox">Birthdate</label>
 			<input type="text" name="birthdateBox" id="birthdateBox" ng-model="birthdateBox" ng-change="validateBD()" required>
 			<p class="help-block" ng-show="signup.birthdateBox.$invalid && signup.birthdateBox.$dirty" id="red bderror">sorry, you must be at least 13 to sign up</p>
 		</div>
+		<!-- passwords invalid unless same -->
 		<div class="form-group">
 			<label for="passwordBox">Password</label>
 			<input name="pass1" type="password" id="passwordBox" ng-model="pass1" required>
@@ -50,6 +54,7 @@
 			<p class="help-block" ng-show="signup.pass2.$invalid && signup.pass2.$dirty" id="red passerror">Passwords must match.</p>
 		</div>
 			<button type="reset" class="btn btn-danger" ng-click="resetForm()">Reset</button>
+			<!-- button disabled if all fields are valid -->
 			<button type="submit" class="btn btn-success, alert-success" id="submitbutton" ng-disabled="signup.$invalid" ng-click="submit()">Submit</button>
 
 	</form>

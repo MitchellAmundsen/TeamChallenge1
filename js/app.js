@@ -5,6 +5,7 @@ angular.module('LoginApp', ['ngSanitize'])
 
 		$scope.htmlText = "";
 		
+		// checks to make sure passwords are the same
 		$scope.validatePW = function(){	
 			var pass1 = $scope.pass1;
 			var pass2 = $scope.pass2;
@@ -15,17 +16,20 @@ angular.module('LoginApp', ['ngSanitize'])
 			}
 		};
 
+		// attempt at making submit bring up alert tags
 		$scope.submit = function(){
 			console.log("test");
 			$scope.htmlText = '<div class="alert alert-success"><strong>Success!</strong></div>';
 		
-
 		}
+		submit.$inject =[""]
+
 		$scope.removeSuccess = function(){
 			$scope.htmlText = "";
 		}
 
 
+		// checks for correct birthday (age of 13)
 		$scope.validateBD = function(){
 			var today = new Date();
 			var birthdate = Date.parse($scope.birthdateBox);
