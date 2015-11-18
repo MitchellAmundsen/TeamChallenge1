@@ -3,7 +3,7 @@
 angular.module('LoginApp', ['ngSanitize'])
 	.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
 
-		$scope.submitted = false;
+		$scope.htmlText = "";
 		
 		$scope.validatePW = function(){	
 			var pass1 = $scope.pass1;
@@ -17,12 +17,12 @@ angular.module('LoginApp', ['ngSanitize'])
 
 		$scope.submit = function(){
 			console.log("test");
-			var htmlText = '<div class="alert alert-success"><strong>Success!</strong></div>';
-			document.getElementById('successAlert').innerHTML = htmlText;
+			$scope.htmlText = '<div class="alert alert-success"><strong>Success!</strong></div>';
+		
 
 		}
 		$scope.removeSuccess = function(){
-			document.getElementById('successAlert').innerHTML = "";
+			$scope.htmlText = "";
 		}
 
 
