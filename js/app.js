@@ -17,8 +17,14 @@ angular.module('LoginApp', ['ngSanitize'])
 
 		$scope.submit = function(){
 			console.log("test");
-			$scope.submitted = true;
+			var htmlText = '<div class="alert alert-success"><strong>Success!</strong></div>';
+			document.getElementById('successAlert').innerHTML = htmlText;
+
 		}
+		$scope.removeSuccess = function(){
+			document.getElementById('successAlert').innerHTML = "";
+		}
+
 
 		$scope.validateBD = function(){
 			var today = new Date();
@@ -40,4 +46,5 @@ angular.module('LoginApp', ['ngSanitize'])
 				$scope.signup.birthdateBox.$setValidity("required", false);
 			}
 		};
+
 	}])

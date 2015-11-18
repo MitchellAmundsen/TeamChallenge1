@@ -64,3 +64,28 @@ describe('form birthday field', function() {
     });
 });
 
+describe('button field', function(){
+  var button = element(by.id('submitbutton'));
+
+  var birthday = element(by.model('birthdateBox'));
+  var email = element(by.model('emailBox'));
+  var firstName = element(by.id('firstNameBox'));
+  var lastName = element(by.model('lastNameBox'));
+  var password = element(by.model('pass1'));
+  var confirmpassword = element(by.model('pass2'));
+
+    it('should only submit when all forms are valid', function(){
+      birthday.sendKeys('01-01-1996');
+      email.sendKeys('testemail@testdomain.com');
+      firstName.sendKeys('test');
+      lastName.sendKeys('test');
+      password.sendKeys('password');
+      confirmpassword.sendKeys('password');
+
+      button.click();
+      var success = element(by.id("successAlert"));
+
+      expect(success.isPresent()).toEqual(true);
+    })
+})
+
