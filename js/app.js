@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('LoginApp', ['ngSanitize'])
-	.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
+	.controller('HomeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
 		$scope.htmlText = "";
 		
@@ -19,10 +19,11 @@ angular.module('LoginApp', ['ngSanitize'])
 		// attempt at making submit bring up alert tags
 		$scope.submit = function(){
 			console.log("test");
-			$scope.htmlText = '<div class="alert alert-success"><strong>Success!</strong></div>';
-		
+			var htmlText = '<div class="alert alert-success"><strong>Success!</strong></div>';
+			
+			$scope.text1 = $sce.trustAsHtml(htmlText);
 		}
-		submit.$inject =[""]
+		
 
 		$scope.removeSuccess = function(){
 			$scope.htmlText = "";
