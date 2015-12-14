@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('LoginApp', ['ngSanitize'])
-	.controller('HomeCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
+angular.module('LoginApp', ['ngSanitize', 'ui.bootstrap'])
+	.controller('HomeCtrl', ['$scope', '$http', '$sce', '$uibModal', function($scope, $http, $sce, $uibModal) {
 
 		$scope.htmlText = "";
 		
@@ -18,11 +18,15 @@ angular.module('LoginApp', ['ngSanitize'])
 
 		// attempt at making submit bring up alert tags
 		$scope.submit = function(){
-			console.log("test");
 			var htmlText = '<div class="alert alert-success"><strong>Success!</strong></div>';
 			
 			$scope.text1 = $sce.trustAsHtml(htmlText);
-		}
+			    var modalInstance = $uibModal.open({
+			      animation: $scope.animationsEnabled,
+			      templateUrl: 'partials/successmodal.html',
+			      size: 'lg'
+			    })
+			};
 		
 
 		$scope.removeSuccess = function(){
@@ -51,5 +55,6 @@ angular.module('LoginApp', ['ngSanitize'])
 				$scope.signup.birthdateBox.$setValidity("required", false);
 			}
 		};
+
 
 	}])

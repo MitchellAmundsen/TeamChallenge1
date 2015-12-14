@@ -14,3 +14,8 @@ input {
 .help-block {
 	color: red;
 }
+
+#green {
+	color: green;
+	text-shadow: none;
+}
